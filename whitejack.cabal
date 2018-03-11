@@ -1,0 +1,79 @@
+name:           whitejack
+version:        0.1.0.0
+description:    Please see the README on Github at <https://github.com/callmecabman/sbrs#readme>
+homepage:       https://github.com/callmecabman/sbrs#readme
+bug-reports:    https://github.com/callmecabman/sbrs/issues
+author:         callmecabman
+maintainer:     callmecabman@protonmail.ch
+copyright:      2018 callmecabman
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/callmecabman/sbrs
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      ListZipper
+    , MonadRandom
+    , base >=4.7 && <5
+    , containers
+    , microlens-platform
+    , mtl
+    , random-shuffle
+    , text
+  exposed-modules:
+      Blackjack
+      Card
+      Deck
+  other-modules:
+      Paths_whitejack
+  default-language: Haskell2010
+
+executable whitejack-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ListZipper
+    , MonadRandom
+    , base >=4.7 && <5
+    , containers
+    , microlens-platform
+    , mtl
+    , random-shuffle
+    , text
+    , whitejack
+  other-modules:
+      Paths_whitejack
+  default-language: Haskell2010
+
+test-suite whitejack-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ListZipper
+    , MonadRandom
+    , base >=4.7 && <5
+    , containers
+    , microlens-platform
+    , mtl
+    , random-shuffle
+    , text
+    , whitejack
+  other-modules:
+      Paths_whitejack
+  default-language: Haskell2010
